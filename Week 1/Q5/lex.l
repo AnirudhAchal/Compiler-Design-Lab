@@ -7,5 +7,6 @@ int yywrap(){}
 
 int main(void) {
     yylex();
+    printf("\n");
     return 0;
 }
