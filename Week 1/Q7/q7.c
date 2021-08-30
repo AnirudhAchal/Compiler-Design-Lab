@@ -33,41 +33,37 @@ int main()
     int value = 0;
     int i = 0;
 
-    f1 = fopen("input","w");
-    printf("\nEnter the c program");
+    // f1 = fopen("input","w");
+    // printf("\nEnter the c program");
 
-    while((c=getchar()) != EOF)
-    {
-        putc(c,f1);
-    }
-    fclose(f1);
+    // while((c=getchar()) != EOF)
+    // {
+    //     putc(c,f1);
+    // }
+    // fclose(f1);
 
-    f1=fopen("input","r");
+    f1=fopen("input.txt","r");
     f2=fopen("identifier","w");
     f3=fopen("specialchar","w");
 
     while((c = getc(f1)) != EOF)
     {
+        /***/
         // Ignore comments
         if(c == '/')
         {
             c = getc(f1);
-            if(c == '/')
-            {
-                // Ignore till end of the line
-                while((c = getc(f1)) != '\n');
-            }
-            else if(c == '*')
+            if(c == '*')
             {
                 // Ignore till end of comment
-                while((c = getc(f1)) != '*') 
-                {
-                    if((c = getc(f1)) == '/')
-                    {
+                while (1) {
+                    while((c = getc(f1)) != '*');
+                    if (c == '*' && (c = getc(f1) == '/'))
                         break;
-                    }
-                    ungetc(c, f1);
+                    else
+                        ungetc(c, f1);
                 }
+                line_count++;
             }
             else {
                 ungetc(c, f1);
@@ -79,7 +75,7 @@ int main()
             value = c - '0';
             while(isdigit(c = getc(f1))) 
             {
-                value = value * 10 + c - '0';
+                value = value * 10 + (c - '0');
             }
             num[num_count++] = value;
         }

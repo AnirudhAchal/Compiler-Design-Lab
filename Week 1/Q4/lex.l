@@ -1,6 +1,6 @@
 %{
     #include <stdio.h>
-    int lineCount = 0, charCount = 0;
+    int lineCount = 1, charCount = 0;
 %}
 
 %%
