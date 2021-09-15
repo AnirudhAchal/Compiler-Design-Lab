@@ -26,21 +26,12 @@ void keyword(char str[10])
 int main()
 {
     FILE *f1, *f2, *f3;
-    char c, str[10], st1[10];
+    char c, str[10];
     int num[100];
     int num_count = 0;
     int line_count = 0;
     int value = 0;
     int i = 0;
-
-    // f1 = fopen("input","w");
-    // printf("\nEnter the c program");
-
-    // while((c=getchar()) != EOF)
-    // {
-    //     putc(c,f1);
-    // }
-    // fclose(f1);
 
     f1=fopen("input.txt","r");
     f2=fopen("identifier","w");
