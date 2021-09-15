@@ -171,25 +171,26 @@ void generateParseTable(vector<vector<string>>& parseTable) {
 
 // Function to print the parse table
 void printParseTable(vector<vector<string>>& parseTable) {
-    cout << "\nParse Table\n\n";
+    cout << "\nParse Table:\n\n";
 
-    vector<char> terminalSorted(terminals.size());
+    vector<char> terminalSorted(terminals.size()+1);
+    terminalSorted[0] = ' ';
+    const int width = 12;
 
     for (auto symbol : terminals) {
-        terminalSorted[symbol.second] = symbol.first;
+        terminalSorted[symbol.second+1] = symbol.first;
     }
 
     for (auto c : terminalSorted) {
-        cout << "\t" << c;
+        cout << left << setw(width) << setfill(' ') << c;
     }
-    
-    cout << "\n";
+    cout << endl << string(width*terminalSorted.size(), '-') << endl;
     for (auto symbol : nonTerminals) {
-        cout << symbol.first << "\t";
-        for (auto entry : parseTable[symbol.second]) {
-            cout << entry << "\t";
+        cout << left << setw(width) << setfill(' ') << symbol.first;
+        for (auto s : parseTable[symbol.second]) {
+            cout << left << setw(width) << setfill(' ') << s;
         }
-        cout << "\n";
+        cout << endl;
     }
 }
 
