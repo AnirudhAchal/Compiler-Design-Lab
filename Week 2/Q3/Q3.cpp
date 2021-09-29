@@ -208,6 +208,12 @@ bool parseTokens(vector<char> &tokens, vector<vector<string>> &parseTable) {
         char st_top = st.top();
         st.pop();
 
+        // Pop if epsilon is on top of the stack
+        if(st_top == '#') 
+        {
+            continue;
+        }
+
         if(st_top == tokens[look_ahead])
         {
             look_ahead++;

@@ -282,6 +282,13 @@ bool parseTokensAndPrintProductions(vector<char> &tokens, vector<vector<string>>
         char st_top = st.top();
         st.pop();
 
+        // If top is epsilon the pop from stack
+        if(st_top == '#') 
+        {
+            printProductions(tokens, look_ahead, st);
+            continue;
+        }
+
         if(st_top == tokens[look_ahead])
         {
             look_ahead++;
