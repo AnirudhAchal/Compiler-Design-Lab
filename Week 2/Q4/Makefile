@@ -2,7 +2,7 @@
 CC = g++
 
 # Define the name of the created C file
-CPPFILE = Q1.cpp
+CPPFILE = Q4.cpp
 
 # Create the executable file
 main: $(CPPFILE)
