@@ -30,6 +30,10 @@ void findLR0Items() {
 				temp.insert(i, ".");
                 LR0Items[rule.first].push_back(temp);
             }
+
+            if (str == "#") {
+                LR0Items[rule.first].pop_back();
+            }
         }
     }
 }
